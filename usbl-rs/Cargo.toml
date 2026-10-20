@@ -1,0 +1,26 @@
+[package]
+name = "usbl-rs"
+version = "21.431.99"       # версия прошивки оригинала: 21.431.99.07.00
+
+edition = "2021"
+description = "Реконструкция USBL (burn-режим) Huawei E3272s-153 на Rust — интерфейсная совместимость с проприетарным загрузчиком"
+publish = false
+
+[profile.release]
+opt-level = "z"          # компактный код
+lto = true               # линк-тайм оптимизация
+codegen-units = 1
+panic = "abort"          # без unwind
+strip = false
+debug = false
+incremental = false
+
+[profile.dev]
+opt-level = "z"
+panic = "abort"
+incremental = false
+
+[dependencies]
+# никаких зависимостей: голое железо no_std
+
+[workspace]
